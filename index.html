@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>TwitchCouch</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css"/>
+	</head>
+	<body>
+		<header>
+			<h1><img src="logo.png" alt="TwitchCouch"/></h1>
+		</header>
+		<h2>Stream Filters</h2>
+		<nav id="filters">
+			<ul>
+				<li><a href="javascript:getMostViewed()">Most Viewed Streams</a></li>
+			</ul>
+		</nav>
+		<h2 id="streamsTitle">Most Viewed Streams</h2>
+		<ul id="streams">
+		</ul>
+	</body>
+</html>
