@@ -25,7 +25,6 @@ function getMostViewed() {
 	$("#streamsTitle").html("Most Viewed Streams");
 	$("#streams").html("");
 	Twitch.api({method: 'streams', params: {limit:5} }, function(error, list) {
-		console.log(list);
 		for (x in list.streams) {
 			var channel=list.streams[x].channel;
 			streams.push(new Stream(channel.name,channel.game,channel.status,channel.logo,list.streams[x].viewers));
@@ -41,13 +40,15 @@ function getStreamsByGame(gamename) {
 	$("#streamsTitle").html(gamename+" Streams");
 	$("#streams").html("");
 	Twitch.api({method: 'streams', params: {limit:5,game:gamename} }, function(error, list) {
-		console.log(list);
 		for (x in list.streams) {
 			var channel=list.streams[x].channel;
 			streams.push(new Stream(channel.name,channel.game,channel.status,channel.logo,list.streams[x].viewers));
 		}
 		for (x in streams) {
 			$("#streams").append("<li>"+streams[x].render()+"</li>");
+		}
+		if (streams.length==0) {
+			$("#streams").html("No streams found");
 		}
 	});
 }
@@ -68,7 +69,6 @@ Game.prototype.render = function(){
 function getGames() {
 	games=new Array();
 	Twitch.api({method: 'games/top', params: {limit:5} }, function(error, list) {
-		console.log(list);
 		for (x in list.top) {
 			games.push(new Game(list.top[x].game.name,list.top[x].game.logo.medium));
 		}

@@ -87,3 +87,9 @@ li:hover a,li:focus a {
 	max-width:13%;
 	height:100px;
 }
+
+form {
+	text-align:right;
+	background-color:#1E1E1E;
+	color:#F5F5F5;
+}

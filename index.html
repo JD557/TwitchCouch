@@ -13,12 +13,22 @@
 			<h1><img src="logo.png" alt="TwitchCouch"/></h1>
 		</header>
 		<h2>Stream Filters</h2>
+		<form action="javascript:getStreamsByGame($('#gameName').val())">
+			<label for="gameName">Game Name:</label>
+			<input id="gameName" type="search"/>
+			<button>Search</button>
+		</form>
 		<nav id="filters">
 			<ul>
 				<li><a href="javascript:getMostViewed()">Most Viewed Streams</a></li>
 			</ul>
 		</nav>
 		<h2 id="streamsTitle">Most Viewed Streams</h2>
+		<form action="javascript:window.location='http://twitch.tv/'+$('#streamName').val()+'/popout'">
+			<label for="streamName">Stream Name:</label>
+			<input id="streamName" type="search"/>
+			<button>Search</button>
+		</form>
 		<ul id="streams">
 		</ul>
 		<footer>
